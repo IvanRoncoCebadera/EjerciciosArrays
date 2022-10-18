@@ -1,23 +1,39 @@
 fun main(){
-    val arrayInt: IntArray = intArrayOf(0,0,0,0,0)
-    println(pedirCadena("Introduce un total de ${arrayInt.size} números, y te dire si tú cadena es capicua o no.", arrayInt))
-    println(comprobarCapicuo (arrayInt))
-}
-fun pedirCadena(mensaje: String, arrayInt: IntArray): String{
-    println(mensaje)
     var mensaje = ""
-    for(i in 0 until arrayInt.size){
-        arrayInt[i] = readln().toInt()
+    println("Introduce un numero y te dire si es capicuo: ")
+    mensaje = readln()
+    val mensajeArray: CharArray = mensaje.toCharArray()
+    println(comprobarCapicuo (mensajeArray, mensaje))
+}
+
+/**
+ * funcion para escribir al reves
+ * @param mensajeArray el vector con los carcateres del numero que introduzcamos
+ * @retrun el mensaje escrito al reves
+ */
+fun  EscribirAlreves(mensajeArray: CharArray): String{
+    val mensajeArray2: CharArray = CharArray(mensajeArray.size)
+    var contador = 0
+    for(i in mensajeArray.size - 1 downTo 0 ){
+        mensajeArray2[i] = mensajeArray[contador]
+        contador = contador + 1
     }
-    mensaje = "Su cadena es: "
+    var mensaje: String = mensajeArray2.joinToString ("")
     return mensaje
 }
-fun comprobarCapicuo (arrayInt: IntArray): String{
-    var mensaje = ""
-    if (arrayInt[arrayInt.size - 1] == arrayInt[0] && arrayInt[arrayInt.size - 2] == arrayInt[1]){
-        mensaje = "Es capicua"
+/**
+ * funcion para comprobar si un numero es capicua
+ * @param mensajeArray el vector con los carcateres del numero que introduzcamos
+ * @param mensaje es el numero que se pidio que escribiera al ususario
+ * @retrun la respuesta a si es o no capicua
+ */
+fun comprobarCapicuo (mensajeArray: CharArray, mensaje: String): String{
+    var mensaje2 = EscribirAlreves(mensajeArray)
+    var resultadoBuilder = StringBuilder()
+    if (mensaje == mensaje2){
+        resultadoBuilder.append("Es capicua.")
     }else{
-        mensaje = "No es capicua."
+        resultadoBuilder.append("No es capicua.")
     }
-    return mensaje
+    return resultadoBuilder.toString()
 }
