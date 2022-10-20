@@ -2,6 +2,12 @@ fun main(){
     val arrayInt: IntArray = intArrayOf(0,0,0,0,0,0)
     println(generarLoteria(arrayInt))
 }
+
+/**
+ * funcion para generar boletos de loteria de forma aleatoria, pero tiene un fallo, no se como evitar que se repitan los numeros a no ser que estan literalmente al lado.
+ * @param arrayInt vector vacio sobre el que se crean los numeros del boleto de loteria
+ * @return un mensaje donde pone los numeros del boleto de loteria
+ */
 fun generarLoteria(arrayInt: IntArray): String {
     val numMin = 0
     val numMax = 49
