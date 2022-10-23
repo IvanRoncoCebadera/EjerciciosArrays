@@ -1,11 +1,10 @@
 fun main(){
     val arrayInt: IntArray = intArrayOf(0,0,0,0,0,0,0,0,0)
-    var numero = 0
     println("${generarCadena(arrayInt)}")
 }
 
 /**
- * funcion que crea un numero determinado de numeros, siendo cada numero nuevo el anterior mas el indice actual
+ * funcion que crea un numero determinado de numeros, siendo cada numero nuevo el anterior mas 1
  * @param arrayInt vector de numeros sobre el que generaremos la cadena
  * @return mensaje con la cadena creada
  */
@@ -14,11 +13,7 @@ private fun generarCadena(arrayInt: IntArray): String {
     var res = generarNumero("Introduce un número para inicializar la cadena:")
     for (i in 0 until arrayInt.size) {
         arrayInt[i] = res
-        if (i >= 1) {
-            res = arrayInt[i] + arrayInt[i - 1]
-        } else{
-            res = arrayInt[i] + 1
-        }
+        res = arrayInt[i] + 1
         mensaje = "$mensaje ${arrayInt[i]}"
     }
     mensaje = "su cadena es: $mensaje "
